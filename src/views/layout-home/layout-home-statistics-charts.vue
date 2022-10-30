@@ -190,8 +190,13 @@ onMounted(()=>{
             bottom:30
           }
         });
-        
-        getChartsInfo(currentDate,useDate().laterDay(currentDate,6))       
+        if(startDate.value && endDate.value){
+            let start = new Date(startDate.value);
+            let end = new Date(endDate.value);
+            getChartsInfo(start,end);
+        }else{
+            getChartsInfo(currentDate,useDate().laterDay(currentDate,6))       
+        }
     })
     
 })
