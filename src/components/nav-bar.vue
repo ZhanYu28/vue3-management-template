@@ -39,8 +39,8 @@
 </template>
 
 <script lang="ts">
-import { computed, ref } from 'vue-demi'
-import { useRouter } from 'vue-router'
+import { computed, onMounted, ref } from 'vue-demi'
+import { useRoute, useRouter } from 'vue-router'
 import { useThemeStore } from '@/store/theme'
 import changeTheme from '@/utils/changeTheme'
 export default {
@@ -52,7 +52,8 @@ const unfold = ref(false)
 const currentNav = ref(0)
 const top = ref(20)
 const router = useRouter();
-const routes = router.options.routes.find(item => item.path == '/')?.children || []
+const route = useRoute();
+const routes = router.options.routes.find(item => item.path == '/')?.children || [];
 async function navClickHandle(index:number,path:string){
     await router.push({path})
     currentNav.value = index
@@ -71,6 +72,14 @@ function toggleTheme(e:MouseEvent){
             themeStore.changeActive(0)
         }
 }
+onMounted(()=>{
+    for(let i=0;i<routes.length;i++){
+        if(route.path.indexOf(routes[i].path) != -1){
+            currentNav.value = i
+            return
+        }
+    }
+})
 
 </script>
 
