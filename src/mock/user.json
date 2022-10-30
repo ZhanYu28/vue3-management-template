@@ -1,0 +1,40 @@
+{
+    "userToken":[
+        {
+            "token":"AshgytoHgaGTiahfkljg",
+            "userId":"dabai",
+            "password":"123456"
+        },
+        {
+            "token":"HasdfPIasdfASHasdfDF",
+            "userId":"xiaobai",
+            "password":"000000"
+        },
+        {
+            "token":"aoFGligGHhsSHuJihoJUia",
+            "userId":"1",
+            "password":"111111"
+        }
+    ],
+    "userInfo":[
+        {
+            "userName":"大白",
+            "role":"管理员",
+            "portrait":"/user-portrait/dabai.jpg",
+            "userId":"dabai"
+        },
+        {
+            "userName":"小白",
+            "role":"会员",
+            "portrait":"/user-portrait/xiaobai.jpg",
+            "userId":"xiaobai"
+        },
+        {
+            "userName":"测试",
+            "role":"测试",
+            "portrait":"/user-portrait/test.jpg",
+            "userId":"1"
+        }
+    ]
+
+}

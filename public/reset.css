@@ -1,0 +1,25 @@
+html,body{
+    height: 100%;
+}
+body,ul,li,p,a,h1,h2,h3,h4,h5,h6{
+    margin:0;
+    padding: 0;
+}
+ul,ol,li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img,button,input{
+    border: none;
+}
+input:focus{
+    outline: none;
+}
+div{
+    box-sizing: border-box;
+}
+body,button, input,span, select, textarea { 
+    font-family: "Microsoft YaHei",Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; 
+}
