@@ -7,6 +7,10 @@
         </div>
         <div class="user-name">
           <span class="name">{{userStore.userInfo.userName}}</span>
+          <span v-if="props.showAddress" class="fullname">
+            <span class="triangle"></span>
+            {{userStore.userInfo.userName}}
+          </span>
           <span class="permission">{{userStore.userInfo.role}}</span>
         </div>
       </div>
@@ -120,20 +124,58 @@ function changeAddress(name:string){
   }
   /* 头部左侧用户信息 */
   .user-info{
-    margin-right: 40px;
-    flex: 0 0 152px;
+    margin-right: 10px;
+    width: 0;
+    flex: 0 1 300px;
     display: flex;
   }
   /* 用户名 */
   .user-info>.user-name{
+    position: relative;
     display: flex;
+    width: 0;
+    flex: 1;
     flex-flow: column;
     justify-content: center;
   }
+  /* 用户名 */
   .user-name>.name{
     margin-bottom: 10px;
+    min-width: 100px;
+    max-height: 62px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     color: var(--myinfo-name);
     font-weight: bold;
+  }
+  .user-name>.name:hover~.fullname{
+    opacity:1;
+  }
+  /* 全名 */
+  .user-name>.fullname{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    opacity: 0;
+    white-space: nowrap;
+    font-size: 12px;
+    color: gray;
+    background-color: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+  }
+  /* 装饰三角形 */
+  .fullname::after{
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: -10px;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
+    border: 5px solid transparent;
+    border-top: 5px solid #fff;
   }
   /* 权限 */
   .user-name>.permission{
@@ -143,7 +185,7 @@ function changeAddress(name:string){
   /* 头像 */
   .user-info>.photo{
     height: 100px;
-    width: 100px;
+    flex: 0 0 100px;
     margin-right: 20px;
     border-radius: 50%;
     overflow: hidden;
@@ -155,7 +197,7 @@ function changeAddress(name:string){
   }
   /* 仓库地址 */
   .address{
-    flex: 1;
+    flex: 1 0 450px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-evenly;

@@ -41,7 +41,7 @@
     height: 100%;
   }
   .router-box{
-    flex:1 0 1000px;
+    flex:1 0 1100px;
     height: 100%;
     min-height: 918px;
     background: var(--main-bg);
